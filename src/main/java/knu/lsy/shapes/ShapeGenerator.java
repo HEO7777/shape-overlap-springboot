@@ -62,8 +62,58 @@ public class ShapeGenerator {
 
     // Union-Find를 사용한 연결 요소 찾기 (연쇄적 그룹화 해결)
     private List<Set<String>> findConnectedComponents(List<Shape> shapes) {
+        // Union-Find 자료구조 구현
+        Map<String, String> parent = new HashMap<>();
+        Map<String, Integer> rank = new HashMap<>();
 
-        return null;
+        // 초기화
+        for (Shape shape : shapes) {
+            parent.put(shape.getId(), shape.getId());
+            rank.put(shape.getId(), 0);
+        }
+
+        // 모든 쌍에 대해 겹침 검사
+        for (int i = 0; i < shapes.size(); i++) {
+            for (int j = i + 1; j < shapes.size(); j++) {
+                if (shapes.get(i).overlaps(shapes.get(j))) {
+                    union(parent, rank, shapes.get(i).getId(), shapes.get(j).getId());
+                }
+            }
+        }
+
+        // 연결 요소 그룹화
+        Map<String, Set<String>> groupMap = new HashMap<>();
+        for (Shape shape : shapes) {
+            String root = find(parent, shape.getId());
+            groupMap.computeIfAbsent(root, k -> new HashSet<>()).add(shape.getId());
+        }
+
+        return new ArrayList<>(groupMap.values());
+    }
+
+    private String find(Map<String, String> parent, String x) {
+        if (!parent.get(x).equals(x)) {
+            parent.put(x, find(parent, parent.get(x))); // 경로 압축
+        }
+        return parent.get(x);
+    }
+
+    private void union(Map<String, String> parent, Map<String, Integer> rank,
+                       String x, String y) {
+        String rootX = find(parent, x);
+        String rootY = find(parent, y);
+
+        if (!rootX.equals(rootY)) {
+            // 랭크 기반 합치기
+            if (rank.get(rootX) < rank.get(rootY)) {
+                parent.put(rootX, rootY);
+            } else if (rank.get(rootX) > rank.get(rootY)) {
+                parent.put(rootY, rootX);
+            } else {
+                parent.put(rootY, rootX);
+                rank.put(rootX, rank.get(rootX) + 1);
+            }
+        }
     }
 
     private void assignGroupColors(List<Shape> shapes, List<Set<String>> groups) {
