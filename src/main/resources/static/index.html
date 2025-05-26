@@ -94,6 +94,32 @@
             display: block;
             border: 1px solid #ddd;
         }
+
+        #info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #info h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .stats {
+            margin-top: 15px;
+            color: #7f8c8d;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .stat-item {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -124,5 +150,13 @@
 <div id="canvas-container">
     <canvas id="shapeCanvas"></canvas>
 </div>
+
+<div id="info">
+    <h3>Shape Statistics</h3>
+    <div id="stats" class="stats">
+        Click "Generate Shapes" to create new shapes
+    </div>
+</div>
+
 </body>
 </html>
