@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static knu.lsy.utils.CollisionUtil.*;
+
 public class IrregularPolygon extends Shape {
     private List<Point> vertices;
 
@@ -80,8 +82,14 @@ public class IrregularPolygon extends Shape {
 
     @Override
     public boolean overlaps(Shape other) {
-        // 임시 구현: 랜덤하게 true/false 반환
-        return Math.random() < 0.3;
+        if (other.getShapeType().equals("circle")) {
+            return other.overlaps(this);
+        } else if (other.getShapeType().equals("regularPolygon") ||
+                other.getShapeType().equals("irregularPolygon")) {
+            return checkConvexPolygonPolygonOverlap(this, other);
+        }
+
+        return false;
     }
 
     @Override

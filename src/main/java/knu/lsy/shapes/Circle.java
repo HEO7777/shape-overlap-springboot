@@ -1,9 +1,10 @@
 package knu.lsy.shapes;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.List;
 import java.util.ArrayList;
+
+import static knu.lsy.utils.CollisionUtil.*;
 
 public class Circle extends Shape {
 
@@ -13,8 +14,14 @@ public class Circle extends Shape {
 
     @Override
     public boolean overlaps(Shape other) {
-        // 임시 구현: 랜덤하게 true/false 반환
-        return Math.random() < 0.3;
+        if (other.getShapeType().equals("circle")) {
+            return checkCircleCircleOverlap(this, (Circle)other);
+        } else if (other.getShapeType().equals("irregularPolygon") ||
+                other.getShapeType().equals("regularPolygon")) {
+            return checkCirclePolygonOverlap(this, other);
+        }
+
+        return false;
     }
 
     @Override
