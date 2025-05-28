@@ -2,7 +2,7 @@
 
 2D 공간에서 다양한 기하학적 도형들의 겹침을 감지하고 시각화하는 웹 기반 시스템입니다. 컴퓨터 그래픽스와 게임 개발에서 중요한 충돌 감지(Collision Detection) 기술을 구현한 프로젝트입니다.
 
-👉 [포트폴리오 문서 보기 (Notion)](https://www.notion.so/Shape-Overlap-SpringBoot-201fa5704878801080eee3165d58cb92?pvs=4)
+👉 [포트폴리오 문서 보기 (Notion)](https://ossified-scion-fe6.notion.site/Shape-Overlap-SpringBoot-201fa5704878801080eee3165d58cb92?pvs=4)
 
 ## 📋 프로젝트 개요
 
