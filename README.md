@@ -2,8 +2,6 @@
 
 2D 공간에서 다양한 기하학적 도형들의 겹침을 실시간으로 감지하고 시각화하는 웹 기반 시스템입니다. 컴퓨터 그래픽스와 게임 개발에서 중요한 충돌 감지(Collision Detection) 기술을 구현한 프로젝트입니다.
 
-🔗 [**Live Demo**](https://github.com/HEO7777/shape-overlap-springboot)
-
 ## 📋 프로젝트 개요
 
 이 프로젝트는 원, 볼록 정다각형, 볼록 비정형 다각형을 무작위로 생성하고 이들 간의 겹침을 정확하게 감지합니다. SAT(Separating Axis Theorem) 알고리즘과 Union-Find 자료구조를 활용하여 연쇌적 그룹화를 통해 연결된 도형 집합을 식별하고 시각적으로 표현합니다.
@@ -129,7 +127,7 @@ src/
 
 ### 아키텍처 개요
 
-![image.png](attachment:90e6661b-58cf-4eb1-b654-be10d80f7deb:image.png)
+![image.png](docs/system-architecture-diagram.png)
 
 ### 핵심 클래스 설명
 
