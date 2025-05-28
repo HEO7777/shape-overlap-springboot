@@ -141,3 +141,11 @@ src/
 ## 📄 라이선스
 
 이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](./LICENSE) 파일을 참조하세요.
+
+## 참고 자료
+
+- Spring Boot 공식 문서
+- SAT(Separating Axis Theorem), Convex Hull 알고리즘, Union-Find 자료구조 관련 논문 및 알고리즘 설명
+- 컴퓨터 그래픽스 관련 대학 교재
+- 다양한 온라인 튜토리얼 및 자료
+- 소스 코드 일부 구현 및 문서화 AI 도구(OpenAI ChatGPT, Claude) 활용
