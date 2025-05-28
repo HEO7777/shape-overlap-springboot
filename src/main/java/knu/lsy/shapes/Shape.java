@@ -17,7 +17,7 @@ public abstract class Shape {
     }
 
     protected String generateId() {
-        return "shape_" + System.currentTimeMillis() + "_" + (int)(Math.random() * 1000);
+        return "shape_" + java.util.UUID.randomUUID().toString() + "_" + (int)(Math.random() * 1000);
     }
 
     protected String generateRandomColor() {

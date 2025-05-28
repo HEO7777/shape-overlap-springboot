@@ -26,7 +26,7 @@ public class CollisionUtil {
             }
         }
 
-        // 또는 다각형의 모든 변이 원과 교차하는지 확인
+        // 또는 다각형에서 적어도 하나의 변이 원과 교차하는지 확인
         List<Point> vertices = otherPolygon.getVertices();
         int size = vertices.size();
         for (int i = 0; i < size; ++i) {
@@ -43,13 +43,18 @@ public class CollisionUtil {
 
     public static boolean checkConvexPolygonPolygonOverlap(Shape thisPolygon, Shape otherPolygon) {
         // 볼록 다각형, 볼록 다각형인 경우
+        // thisPolygon의 분리축들 생성 및 추가
         List<Point> axes = getSeparatingAxes(thisPolygon.getVertices());
-        axes.addAll(getSeparatingAxes(otherPolygon.getVertices())); // 양쪽 모두 검사
+        // otherPolygon의 분리축들 생성 및 추가
+        axes.addAll(getSeparatingAxes(otherPolygon.getVertices()));
 
+        // 각 축에 대해
         for (Point axis : axes) {
+            // 모든 정점을 투영
             double[] projection1 = projectOntoAxis(thisPolygon.getVertices(), axis);
             double[] projection2 = projectOntoAxis(otherPolygon.getVertices(), axis);
 
+            // 겹침 검사
             if (!rangesOverlap(projection1[0], projection1[1], projection2[0], projection2[1])) {
                 return false; // 분리 축 발견
             }

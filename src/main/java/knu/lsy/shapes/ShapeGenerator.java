@@ -85,6 +85,7 @@ public class ShapeGenerator {
         Map<String, Set<String>> groupMap = new HashMap<>();
         for (Shape shape : shapes) {
             String root = find(parent, shape.getId());
+            // 중복 키 체크 + 초기화 + 값 추가
             groupMap.computeIfAbsent(root, k -> new HashSet<>()).add(shape.getId());
         }
 
@@ -92,8 +93,9 @@ public class ShapeGenerator {
     }
 
     private String find(Map<String, String> parent, String x) {
+        // 경로 압축
         if (!parent.get(x).equals(x)) {
-            parent.put(x, find(parent, parent.get(x))); // 경로 압축
+            parent.put(x, find(parent, parent.get(x)));
         }
         return parent.get(x);
     }
@@ -104,7 +106,7 @@ public class ShapeGenerator {
         String rootY = find(parent, y);
 
         if (!rootX.equals(rootY)) {
-            // 랭크 기반 합치기
+            // 랭크 기반 합치기 - 트리 높이 최소화
             if (rank.get(rootX) < rank.get(rootY)) {
                 parent.put(rootX, rootY);
             } else if (rank.get(rootX) > rank.get(rootY)) {

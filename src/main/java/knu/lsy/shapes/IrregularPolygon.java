@@ -41,12 +41,13 @@ public class IrregularPolygon extends Shape {
     }
 
     private List<Point> createSimpleConvexHull(List<Point> points) {
-        // 간단한 컨벡스 헐 구현
+        // 삼각형 이하는 볼록 다각형
         if (points.size() <= 3) return points;
 
-        // x 좌표로 정렬
+        // x 좌표 오름차순으로 정렬
         points.sort(Comparator.comparingDouble(Point::getX));
 
+        // 간단한 컨벡스 헐 구현
         List<Point> hull = new ArrayList<>();
 
         // 하부 헐
@@ -58,7 +59,7 @@ public class IrregularPolygon extends Shape {
             hull.add(p);
         }
 
-        // 상부 헐
+        // 상부 헐 처리
         int lowerSize = hull.size();
         for (int i = points.size() - 2; i >= 0; i--) {
             Point p = points.get(i);
@@ -76,6 +77,7 @@ public class IrregularPolygon extends Shape {
     }
 
     private double orientation(Point p, Point q, Point r) {
+        // 외적
         return (q.getX() - p.getX()) * (r.getY() - p.getY()) -
                 (q.getY() - p.getY()) * (r.getX() - p.getX());
     }

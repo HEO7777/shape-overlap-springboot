@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Main-Class: knu.lsy.ShapeOverlapSpringbootApplication
+Class-Path: spring-webmvc-6.2.7.jar jackson-module-parameter-names-2.19.
+ 0.jar spring-expression-6.2.7.jar tomcat-embed-core-10.1.41.jar tomcat-
+ embed-websocket-10.1.41.jar spring-core-6.2.7.jar spring-aop-6.2.7.jar 
+ spring-boot-starter-logging-3.5.0.jar jakarta.annotation-api-2.1.1.jar 
+ jackson-datatype-jsr310-2.19.0.jar jackson-datatype-jdk8-2.19.0.jar sna
+ keyaml-2.4.jar spring-boot-starter-tomcat-3.5.0.jar spring-boot-starter
+ -json-3.5.0.jar spring-context-6.2.7.jar spring-boot-devtools-3.5.0.jar
+  spring-jcl-6.2.7.jar micrometer-observation-1.15.0.jar jackson-core-2.
+ 19.0.jar spring-boot-starter-web-3.5.0.jar jackson-databind-2.19.0.jar 
+ spring-boot-autoconfigure-3.5.0.jar logback-classic-1.5.18.jar logback-
+ core-1.5.18.jar log4j-api-2.24.3.jar json-20231013.jar spring-boot-3.5.
+ 0.jar log4j-to-slf4j-2.24.3.jar slf4j-api-2.0.17.jar spring-boot-starte
+ r-3.5.0.jar spring-web-6.2.7.jar spring-beans-6.2.7.jar micrometer-comm
+ ons-1.15.0.jar tomcat-embed-el-10.1.41.jar jackson-annotations-2.19.0.j
+ ar jul-to-slf4j-2.0.17.jar
+
